@@ -6,10 +6,7 @@
  * Time: 12:48 PM
  */
 use app\widgets\Breadcrumbs;
-if(!$isFrontpage){
-    $this->params['breadcrumbs'][] = ['label'=>ucfirst(Yii::$app->controller->action->id),'url'=>'#'];
-    $this->params['breadcrumbs'][] = ['label'=>ucfirst(str_replace('/','', Yii::$app->request->getUrl()))];
-}
+
 
 ?>
 <!-- Breadcrumbs -->

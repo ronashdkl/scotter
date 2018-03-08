@@ -8,8 +8,11 @@
 use yii\helpers\Html;
 
 $this->title = $name;
+
+$this->params['breadcrumbs'][] = ['label'=>ucfirst(Yii::$app->controller->action->id),'url'=>'#'];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-error">
+<div class="site-error container">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

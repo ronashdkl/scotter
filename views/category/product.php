@@ -1,25 +1,12 @@
 <?php
- $this->title="Product Details";
+ $this->title=$product->getName();
+$this->params['breadcrumbs'][] = ['label'=>ucfirst(Yii::$app->controller->id),'url'=>'#'];
+$this->params['breadcrumbs'][] = ['label'=>ucfirst(Yii::$app->request->getQueryParam('category')),'url'=>'#'];
+$this->params['breadcrumbs'][] = ['label'=>ucfirst(Yii::$app->controller->action->id),'url'=>'#'];
+$this->params['breadcrumbs'][] = ['label'=>ucfirst(Yii::$app->request->getQueryParam('product'))];
+
  ?>
-      <!-- Breadcrumbs -->
-      <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
-        <div class="container">
-          <ul class="u-list-inline">
-            <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#!">Home</a>
-              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-            </li>
-            <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#!">Pages</a>
-              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-            </li>
-            <li class="list-inline-item g-color-primary">
-              <span>Single Product 2</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <!-- End Breadcrumbs -->
+
 
       <!-- Product Description -->
       <div class="container g-pt-50 g-pb-100">
@@ -33,15 +20,21 @@
                  data-arrow-left-classes="fa fa-angle-left g-left-40"
                  data-arrow-right-classes="fa fa-angle-right g-right-40"
                  data-nav-for="#carouselCus2">
-              <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after"> 
-                <img class="img-fluid w-100" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description"> 
-              </div>
               <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after">
-                <img class="img-fluid w-100" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
+                <img class="img-fluid w-100" src="<?= $product->getAvatar()?>" alt="Image Description">
               </div>
-              <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after">
-                <img class="img-fluid w-100" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
-              </div>
+           <?php
+                if($product->hasImages()){
+
+                    foreach ($product->getImages()['url'] as $img){
+                        ?>
+                        <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after">
+                            <img class="img-fluid w-100" src="<?= $img ?>" alt="Image Description">
+                        </div>
+                <?php
+                    }
+                }
+           ?>
             </div>
 
             <div id="carouselCus2" class="js-carousel text-center u-carousel-v3 g-mx-minus-5"
@@ -51,28 +44,23 @@
                  data-is-thumbs="true"
                  data-nav-for="#carouselCus1">
               <div class="js-slide g-cursor-pointer g-px-5">
-                <img class="img-fluid" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
+                <img class="img-fluid" src="<?= $product->getAvatar()?>" alt="Image Description">
               </div>
 
-              <div class="js-slide g-cursor-pointer g-px-5">
-                <img class="img-fluid" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
-              </div>
+                <?php
+                if($product->hasImages()){
 
-              <div class="js-slide g-cursor-pointer g-px-5">
-                <img class="img-fluid" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
-              </div>
+                    foreach ($product->getImages()['url'] as $img){
+                        ?>
+                        <div class="js-slide g-cursor-pointer g-px-5">
+                            <img class="img-fluid" src="<?= $img ?>" alt="Image Description">
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
 
-              <div class="js-slide g-cursor-pointer g-px-5">
-                <img class="img-fluid" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
-              </div>
 
-              <div class="js-slide g-cursor-pointer g-px-5">
-                <img class="img-fluid" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
-              </div>
-
-              <div class="js-slide g-cursor-pointer g-px-5">
-                <img class="img-fluid" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
-              </div>
             </div>
             <!-- End Carousel -->
           </div>
@@ -81,16 +69,16 @@
             <div class="g-px-40--lg g-pt-70">
               <!-- Product Info -->
               <div class="g-mb-30">
-                <h1 class="g-font-weight-300 mb-4">Moped<br> Classic Red</h1>
-                <p>Dress is the "rain mac" version of our beloved essential the Unify Parka. Crafted from a water resistant fluid memory fabric to create an elegant draped effect when thrown on, this lightweight shell will take you from season to season and protect you from that unexpected shower.</p>
+                <h1 class="g-font-weight-300 mb-4"><?= ($product->category->parent!=null)?$product->category->parentCategory->getName():$product->category->getName()?><br><?= $product->getName()?></h1>
+                  <p><?= $product->getSummary()?></p>
               </div>
               <!-- End Product Info -->
 
               <!-- Price -->
               <div class="g-mb-30">
                 <h2 class="g-color-gray-dark-v5 g-font-weight-400 g-font-size-12 text-uppercase mb-2">Price</h2>
-                <span class="g-color-black g-font-weight-500 g-font-size-30 mr-2">$99.00</span>
-                <s class="g-color-gray-dark-v4 g-font-weight-500 g-font-size-16">$101.00</s>
+                <span class="g-color-black g-font-weight-500 g-font-size-30 mr-2"><?=  $product->getSalePrice() ?></span>
+                <s class="g-color-gray-dark-v4 g-font-weight-500 g-font-size-16"><?= $product->getActualPrice() ?></s>
               </div>
               <!-- End Price -->
 
@@ -227,66 +215,7 @@
         <div class="g-brd-y g-brd-gray-light-v4 g-pt-100 g-pb-70">
           <h2 class="h4 mb-3">Description</h2>
 
-          <div class="row">
-            <div class="col-md-4 g-mb-30">
-              <p>The streak started in late October. Canelas 2010, an unheralded amateur soccer team, suddenly could not stop winning.</p>
-              <p>It went 10 straight matches without dropping a point, without so much as conceding a goal, a surge that brought the prospect of promotion out of its local league and into the comparative big time of the national third division.</p>
-            </div>
-
-            <div class="col-md-4 g-mb-0 g-mb-30--md">
-              <!-- List -->
-              <ul class="list-unstyled g-color-text">
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Brand Name:</span>
-                  <span class="float-right g-color-black">Lacoste</span>
-                </li>
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Sleeve Length:</span>
-                  <span class="float-right g-color-black">Full</span>
-                </li>
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Sleeve Style:</span>
-                  <span class="float-right g-color-black">Regular</span>
-                </li>
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Pattern Type:</span>
-                  <span class="float-right g-color-black">PAID</span>
-                </li>
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Style:</span>
-                  <span class="float-right g-color-black">Casual</span>
-                </li>
-              </ul>
-              <!-- End List -->
-            </div>
-
-            <div class="col-md-4 g-mb-30">
-              <!-- List -->
-              <ul class="list-unstyled g-color-text">
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Material:</span>
-                  <span class="float-right g-color-black">Cotton, Nylon</span>
-                </li>
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Item Type:</span>
-                  <span class="float-right g-color-black">Pullovers</span>
-                </li>
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Thickness:</span>
-                  <span class="float-right g-color-black">Thin</span>
-                </li>
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Model Number:</span>
-                  <span class="float-right g-color-black">TM-11013</span>
-                </li>
-                <li class="g-brd-bottom--dashed g-brd-gray-light-v3 pt-1 mb-3">
-                  <span>Material:</span>
-                  <span class="float-right g-color-black">80% COTTON</span>
-                </li>
-              </ul>
-              <!-- End List -->
-            </div>
-          </div>
+          <?= $product->getDescription()?>
         </div>
       </div>
       <!-- End Description -->
@@ -623,7 +552,7 @@
               <img class="img-fluid" src="<?=yii\helpers\Url::toRoute("/uploads/products/product1.jpg");?>" alt="Image Description">
 
               <figcaption class="w-100 g-bg-lightred text-center g-pos-abs g-bottom-0 g-transition-0_2 g-py-5">
-                <span class="g-color-white g-font-size-11 text-uppercase g-letter-spacing-1">Sold Out</a>
+                  <span class="g-color-white g-font-size-11 text-uppercase g-letter-spacing-1">Sold Out</span>
               </figcaption>
             </figure>
 

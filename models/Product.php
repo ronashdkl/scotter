@@ -218,6 +218,21 @@ class Product extends \yii\db\ActiveRecord
         }
     }
 
+    /**
+     * @return string
+     */
+    public function getSalePrice()
+    {
+        return Configuration::get('currency')." ".$this->sale_price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getActualPrice()
+    {
+        return Configuration::get('currency')." ".$this->actual_price;
+    }
 
     function getAvatarFromMedia()
     {

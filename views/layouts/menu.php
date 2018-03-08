@@ -80,7 +80,7 @@ $information = Information::find()->where(['show_in_menu'=>Configuration::YES])-
                                                                foreach ($subCategory->products as $product){
                                                                    echo ' <li>
                                                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                                               href="#!">- '.$product->getName().'</a>
+                                                               href="/'.urlencode($product->category->title).'/'.urlencode($product->getName()).'/'.urlencode($product->sku).'">- '.$product->getName().'</a>
                                                         </li>';
                                                                }
 
