@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\helpers\Configuration;
 use app\models\Category;
 use app\models\Product;
 use Yii;
@@ -65,8 +66,9 @@ class SiteController extends Controller
     {
         $categories = Category::find()->parent();
         $products = Product::find()->limit(25)->all();
+        $featureProducts = Product::find()->where(['feature'=>Configuration::YES])->limit(25)->all();
 
-        return $this->render('index',['categories'=>$categories,'products'=>$products]);
+        return $this->render('index',['categories'=>$categories,'products'=>$products,'featureProducts'=>$featureProducts]);
     }
 
 
