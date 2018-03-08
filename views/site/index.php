@@ -1,6 +1,9 @@
 <?php
 
+
 /* @var $this yii\web\View */
+
+use app\helpers\Configuration;
 $this->title = 'Scooter | Online Shopping Site';
 ?> 
 
@@ -237,8 +240,8 @@ if(count($products)>0){
 ?>
       <div class="container g-pb-100">
         <div class="text-center mx-auto g-max-width-600 g-mb-50">
-          <h2 class="g-color-black mb-4">New Products</h2>
-          <p class="lead">We want to sell latest model of moped.</p>
+          <h2 class="g-color-black mb-4"><?= Configuration::get('new_products')?></h2>
+          <p class="lead"><?= Configuration::get('new_products_sub_header')?></p>
         </div>
 
         <div id="carouselCus1" class="js-carousel g-pb-100 g-mx-minus-10"
@@ -312,8 +315,8 @@ if(count($featureProducts)>0){
 ?>
       <div class="container g-pb-100">
         <div class="text-center mx-auto g-max-width-600 g-mb-50">
-          <h2 class="g-color-black mb-4">Featured Products</h2>
-          <p class="lead">We also inform you about latest upcomming models & spare parts.</p>
+          <h2 class="g-color-black mb-4"><?= Configuration::get('feature_products')?></h2>
+          <p class="lead"><?= Configuration::get('feature_products_sub_header')?></p>
         </div>
 
         <div id="carouselCus1" class="js-carousel g-pb-100 g-mx-minus-10"

@@ -74,8 +74,12 @@ class SiteController extends Controller
 
     public function actionPage($page,$product=false)
     {
+
+        $model = Category::find()->where(['title'=>$page])->one();
+        print_r($model);
+        die();
 //        return $this->render('/page/'.$page);
-       return $page." ".$product;
+
 
 
     }
