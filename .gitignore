@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+vendor/
+config/
+.idea/
+assets/
+commands/
+events/
+mail/public/
+web/
+runtime/
+tests/
+vargrant/
