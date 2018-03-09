@@ -41846,8 +41846,8 @@ pre[class*="language-"] .toolbar-item a {
   }
   /* P */
   .g-py-30 {
-    padding-top: 13.143rem !important;
-    padding-bottom: 2.14286rem !important;
+    padding-top: 1.143rem !important; 
+    padding-bottom: 1.14286rem !important;
   }
   /* P */
   .g-py-35 {
@@ -48013,3 +48013,28 @@ p {
 .hs-icon-arrow-bottom:before {
   font-size: 9px;
 }
+.scooty-img {
+    font-size: 50px;
+    margin-bottom: 15px;
+    margin-left: 74px;
+}
+.scooty-title{
+    margin-bottom: 5px;
+    margin-left: 93px;
+}
+.scooty-title a h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #444; 
+}
+.scooty-content {
+    font-size: 13px;
+    color: #C8DBC8;
+    margin-left: 20px;
+}
+.scooty-img a i {
+    color: #000;
+    border: 1px solid #C8DBC8;
+    border-radius: 50%;
+    padding: 12px;
+} 

@@ -8,18 +8,8 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Search Result';
-$this->params['breadcrumbs'][] = $this->title;
-?> 
-<section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
-        <div class="container">
-          <ul class="u-list-inline">  
-            <li class="list-inline-item g-mr-5">
-              <span class="u-link-v5 g-color-text">101 items for "scooter"</span> 
-            </li> 
-          </ul>
-        </div>
-      </section>
+$this->title = 'Search Result'; 
+?>  
 
   <div class="container">
         <div class="row">

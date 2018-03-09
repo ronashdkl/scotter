@@ -17,6 +17,7 @@ class Encription
      */
     public static function encryptIt($pure_string)
     {
+        return $pure_string;
         $key = Configuration::get('encrypt_key'); //key to encrypt and decrypts.
 
         $iv = 23;
@@ -35,6 +36,7 @@ class Encription
      */
     public static function decryptIt($encrypted_string)
     {
+        return $encrypted_string;
         $key = Configuration::get('encrypt_key'); //key to encrypt and decrypts.
 
         $iv = 23;

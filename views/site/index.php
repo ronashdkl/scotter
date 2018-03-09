@@ -9,7 +9,7 @@ $this->title = 'Scooter | Online Shopping Site';
 
 
       <!-- Revolution Slider -->
-      <div class="g-overflow-hidden" style="padding-top: 154px;">
+      <div class="g-overflow-hidden">
         <div id="rev_slider_1014_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="typewriter-effect" data-source="gallery" style="background-color:transparent;padding:0px;">
           <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
           <div id="rev_slider_1014_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">

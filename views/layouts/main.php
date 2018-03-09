@@ -30,7 +30,15 @@ if ((Yii::$app->controller->id.'/'.Yii::$app->controller->action->id) == 'site/i
 <body>
 <?php $this->beginBody() ?>
 <main>
-    <header id="js-header" class="u-header u-header--static u-shadow-v19" style="position: fixed;">
+<style type="text/css">
+    .navbar.compressed {
+        background: #ffffff !important;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+    }
+</style>    
+    <header id="js-header" class="u-header u-header--static u-shadow-v19">
         <?= $this->render("header",['isFrontpage'=>$isFrontpage]); ?>
 
         <?= $this->render("menu",['isFrontpage'=>$isFrontpage]); ?>
@@ -620,6 +628,17 @@ if ((Yii::$app->controller->id.'/'.Yii::$app->controller->action->id) == 'site/i
         }, 200);
     });
 </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $(window).on("scroll", function() {
+          if ($(window).scrollTop() >= 10) {
+            $(".navbar").addClass("compressed");
+          } else {
+            $(".navbar").removeClass("compressed");
+          }
+        });
+      });
+    </script>
 
 </html>
 <?php $this->endPage() ?>

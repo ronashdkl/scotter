@@ -346,7 +346,7 @@ $information = Information::find()->where(['show_in_menu'=>Configuration::YES])-
                                 <li class="g-mx-10--lg g-mx-15--xl">
                                     <a id="nav-link--home"
                                        class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20"
-                                       href="/<?= $category->title ?>">
+                                       href="<?= Yii::$app->getUrlManager()->getBaseUrl();?>/<?= $category->title ?>/">
                                         <?= $category->getName() ?>
                                     </a>
                                 </li>

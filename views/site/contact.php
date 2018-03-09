@@ -8,27 +8,8 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
-?> 
-<section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
-        <div class="container">
-          <ul class="u-list-inline">
-            <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#!">Home</a>
-              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-            </li>
-            <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#!">Pages</a>
-              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-            </li>
-            <li class="list-inline-item g-color-primary">
-              <span>Contact Us</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <!-- End Breadcrumbs --> 
+$this->title = 'Contact'; 
+?>  
 
       <div class="container g-py-100">
         <!-- Contact Info -->
